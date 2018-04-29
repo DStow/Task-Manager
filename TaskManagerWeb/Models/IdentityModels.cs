@@ -22,7 +22,7 @@ namespace TaskManagerWeb.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("TaskManagerDevConn", throwIfV1Schema: false)
         {
         }
         

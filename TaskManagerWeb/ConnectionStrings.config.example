@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0"?>
 <connectionStrings>
-  <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-DStowsSpace-20180329112213.mdf;Initial Catalog=aspnet-DStowsSpace-20180329112213;Integrated Security=True"
+  <add name="TaskManagerDevConn" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-DStowsSpace-20180329112213.mdf;Initial Catalog=aspnet-DStowsSpace-20180329112213;Integrated Security=True"
 providerName="System.Data.SqlClient" />
 </connectionStrings>
