@@ -28,17 +28,27 @@ namespace TaskManagerWeb.Controllers
         [Authorize]
         public int CreateProject(CreateProjectBindingClass newProject)
         {
-            Project newProj = new Project()
+            // Check if they have already created
+            var existingProject = _context.Projects.Where(x => x.Name.ToLower() == newProject.Name.ToString() && x.CreatedBy == User.Identity.Name);
+
+            if (existingProject.Count() > 0)
             {
-                Name = newProject.Name,
-                CreatedBy = User.Identity.Name,
-                CreatedWhen = DateTime.Now
-            };
+                throw new Exception("Project already exists");
+            }
+            else
+            {
+                Project newProj = new Project()
+                {
+                    Name = newProject.Name,
+                    CreatedBy = User.Identity.Name,
+                    CreatedWhen = DateTime.Now
+                };
 
-            _context.Projects.Add(newProj);
-            _context.SaveChanges();
+                _context.Projects.Add(newProj);
+                _context.SaveChanges();
 
-            return newProj.ProjectId;
+                return newProj.ProjectId;
+            }
         }
 
         #region Binding Classes
