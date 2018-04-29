@@ -12,7 +12,7 @@ namespace TaskManagerAPI
     {
         public static bool CreateAccount(string email, string password)
         {
-            string URL = "http://localhost/TaskManagerWeb";
+            string URL = "http://192.168.0.16/TaskManagerWeb";
 
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest("/Api/Account/Register", Method.POST);
@@ -35,7 +35,7 @@ namespace TaskManagerAPI
 
         public static bool GetAccessToken(string email, string password, out string token)
         {
-            RestClient client = new RestClient("http://localhost/TaskManagerWeb");
+            RestClient client = new RestClient("http://192.168.0.16/TaskManagerWeb");
             RestRequest request = new RestRequest("/Token", Method.POST);
             request.AddParameter("grant_type", "password");
             request.AddParameter("Username", email);
