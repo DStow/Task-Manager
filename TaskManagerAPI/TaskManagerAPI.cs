@@ -43,17 +43,27 @@ namespace TaskManagerAPI
             }
             else
             {
-                throw new RequestException(response.StatusCode);
+                throw new RequestException(response.StatusCode, JsonConvert.DeserializeObject<ExceptionBinder>(response.Content).ExceptionMessage);
             }
+        }
+
+        class ExceptionBinder
+        {
+            public string Message { get; set; }
+            public string ExceptionMessage { get; set; }
         }
     }
 
     public class RequestException : ApplicationException
     {
-        public RequestException(System.Net.HttpStatusCode response)
+        public System.Net.HttpStatusCode ResponseCode { get; set; }
+        public string ServerErrorMessage { get; set; }
+
+        public RequestException(System.Net.HttpStatusCode response, string message)
             : base("Response came back as " + response.ToString())
         {
-
+            this.ResponseCode = response;
+            this.ServerErrorMessage = message;
         }
     }
 }
