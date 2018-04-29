@@ -10,12 +10,17 @@ namespace TaskManagerAPI
 {
     public static class TaskManagerAPI
     {
-        public static object SendGetRequest(string requestPath, Dictionary<string, string> parameters = null, string authToken = null)
+        public static object SendRequest(Enumeration.RequestType requestType, string requestPath, Dictionary<string, string> parameters = null, string authToken = null)
         {
             string URL = "http://192.168.0.16/TaskManagerWeb";
 
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest(requestPath, Method.GET);
+
+            if (requestType == Enumeration.RequestType.POST)
+            {
+                request = new RestRequest(requestPath, Method.POST);
+            }
 
             if (parameters != null)
             {
