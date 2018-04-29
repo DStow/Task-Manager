@@ -12,7 +12,7 @@ namespace TaskManagerAPI
     {
         public static object SendGetRequest(string requestPath, Dictionary<string, string> parameters = null, string authToken = null)
         {
-            string URL = "http://localhost/TaskManagerWeb";
+            string URL = "http://192.168.0.16/TaskManagerWeb";
 
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest(requestPath, Method.GET);
