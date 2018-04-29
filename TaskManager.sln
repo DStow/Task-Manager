@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerAndroid", "TaskM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerAPI", "TaskManagerAPI\TaskManagerAPI.csproj", "{A7673DFD-6373-4122-BD25-A3666AD27812}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerWindows", "TaskManagerWindows\TaskManagerWindows.csproj", "{581235D3-45D6-40BB-BE77-75B122F512A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{A7673DFD-6373-4122-BD25-A3666AD27812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7673DFD-6373-4122-BD25-A3666AD27812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7673DFD-6373-4122-BD25-A3666AD27812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581235D3-45D6-40BB-BE77-75B122F512A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581235D3-45D6-40BB-BE77-75B122F512A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581235D3-45D6-40BB-BE77-75B122F512A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581235D3-45D6-40BB-BE77-75B122F512A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
