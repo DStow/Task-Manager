@@ -1,1 +1,6 @@
 # Task Manager Ignore File
+
+.vs
+/packages/
+bin
+obj
