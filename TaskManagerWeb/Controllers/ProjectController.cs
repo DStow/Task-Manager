@@ -26,11 +26,11 @@ namespace TaskManagerWeb.Controllers
 
         [HttpPost]
         [Authorize]
-        public int CreateProject(string name)
+        public int CreateProject(CreateProjectBindingClass newProject)
         {
             Project newProj = new Project()
             {
-                Name = name,
+                Name = newProject.Name,
                 CreatedBy = User.Identity.Name,
                 CreatedWhen = DateTime.Now
             };
@@ -40,5 +40,12 @@ namespace TaskManagerWeb.Controllers
 
             return newProj.ProjectId;
         }
+
+        #region Binding Classes
+        public class CreateProjectBindingClass
+        {
+            public string Name { get; set; }
+        }
+        #endregion
     }
 }
