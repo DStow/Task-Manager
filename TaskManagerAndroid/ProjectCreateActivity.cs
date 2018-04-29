@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using API = TaskManagerAPI;
+
 namespace TaskManagerAndroid
 {
     [Activity(Label = "ProjectCreateActivity")]
@@ -40,7 +42,11 @@ namespace TaskManagerAndroid
             }
             else
             {
+                API.Project.CreateProject(Token.AuthToken, projectName);
 
+                // On success go back to project list
+                var projectListActivity = new Intent(this, typeof(ProjectListActivity));
+                StartActivity(projectListActivity);
             }
         }
     }
