@@ -47,6 +47,10 @@ namespace TaskManagerAndroid
                 txtEmail.Text = "";
                 txtPassword.Text = "";
 
+                Token.AuthToken = token;
+
+                var projectListActivity = new Intent(this, typeof(ProjectListActivity));
+                StartActivity(projectListActivity);
             }
             else
             {

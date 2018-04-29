@@ -85,7 +85,10 @@ namespace TaskManagerAndroid
 			public const int Main = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Register = 2130837506;
+			public const int ProjectList = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Register = 2130837507;
 			
 			static Layout()
 			{
