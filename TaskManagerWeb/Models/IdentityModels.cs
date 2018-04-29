@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace TaskManagerWeb.Models
 {
@@ -29,5 +30,7 @@ namespace TaskManagerWeb.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Project> Projects { get; set; }
     }
 }
