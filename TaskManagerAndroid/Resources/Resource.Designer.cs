@@ -44,14 +44,11 @@ namespace TaskManagerAndroid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040006
+			public const int btnCreateNewAccount = 2130968582;
+			
 			// aapt resource value: 0x7f040005
-			public const int button1 = 2130968581;
-			
-			// aapt resource value: 0x7f040002
-			public const int editText1 = 2130968578;
-			
-			// aapt resource value: 0x7f040004
-			public const int editText2 = 2130968580;
+			public const int btnLogin = 2130968581;
 			
 			// aapt resource value: 0x7f040000
 			public const int textView1 = 2130968576;
@@ -61,6 +58,12 @@ namespace TaskManagerAndroid
 			
 			// aapt resource value: 0x7f040003
 			public const int textView3 = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int txtLoginEmail = 2130968578;
+			
+			// aapt resource value: 0x7f040004
+			public const int txtLoginPassword = 2130968580;
 			
 			static Id()
 			{
@@ -80,6 +83,9 @@ namespace TaskManagerAndroid
 			
 			// aapt resource value: 0x7f020001
 			public const int Main = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Register = 2130837506;
 			
 			static Layout()
 			{
