@@ -41,5 +41,17 @@ namespace TaskManagerWindows
                 MessageBox.Show("Credentials error!");
             }
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            frmRegister register = new frmRegister();
+
+            if (register.ShowDialog() == DialogResult.OK)
+            {
+                // DIsplay the entered email as the login email on this form
+                txtEmail.Text = register.Email;
+                txtPassword.Text = "";
+            }
+        }
     }
 }
