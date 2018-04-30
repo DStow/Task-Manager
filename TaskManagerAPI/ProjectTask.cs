@@ -46,5 +46,16 @@ namespace TaskManagerAPI
 
             return results.ToArray();
         }
+
+        public static int CreateTask(string authToken, int projectId, string description)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("ProjectId", projectId.ToString());
+            parameters.Add("Description", description);
+
+            object result = TaskManagerAPI.SendRequest(Enumeration.RequestType.POST, "/api/task/createtask", parameters, authToken);
+
+            return 0;
+        }
     }
 }
