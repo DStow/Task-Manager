@@ -12,9 +12,19 @@ namespace TaskManagerWindows
 {
     public partial class frmTaskList : Form
     {
-        public frmTaskList()
+        private int _projectId;
+
+        public frmTaskList(int projectId)
         {
             InitializeComponent();
+            _projectId = projectId;
+        }
+
+        private void frmTaskList_Load(object sender, EventArgs e)
+        {
+            TaskManagerAPI.ProjectTask[] tasks = TaskManagerAPI.ProjectTask.GetTasks(Token.AuthToken, _projectId);
+            listTasks.DataSource = tasks;
+            listTasks.DisplayMember = "Description";
         }
     }
 }

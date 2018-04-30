@@ -49,6 +49,7 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.Name = "frmTaskList";
             this.Text = "frmTaskList";
+            this.Load += new System.EventHandler(this.frmTaskList_Load);
             this.ResumeLayout(false);
 
         }
