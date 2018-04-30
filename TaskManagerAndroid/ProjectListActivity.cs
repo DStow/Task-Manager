@@ -39,6 +39,9 @@ namespace TaskManagerAndroid
                 projButton.Click += (object sender, EventArgs e) =>
                 {
                     // Send the user to the project menu view?
+                    var projectOptionsActivity = new Intent(this, typeof(ProjectOptionsActivity));
+                    projectOptionsActivity.PutExtra("SelectedProjectId", project.ProjectId);
+                    this.StartActivity(projectOptionsActivity);
                 };
 
                 layout.AddView(projButton);

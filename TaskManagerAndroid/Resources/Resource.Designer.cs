@@ -53,8 +53,17 @@ namespace TaskManagerAndroid
 			// aapt resource value: 0x7f060005
 			public const int btnLogin = 2131099653;
 			
+			// aapt resource value: 0x7f06000c
+			public const int btnProjectDelete = 2131099660;
+			
+			// aapt resource value: 0x7f06000b
+			public const int btnProjectEdit = 2131099659;
+			
 			// aapt resource value: 0x7f06000a
-			public const int menu_edit = 2131099658;
+			public const int btnProjectViewTasks = 2131099658;
+			
+			// aapt resource value: 0x7f06000d
+			public const int menu_edit = 2131099661;
 			
 			// aapt resource value: 0x7f060009
 			public const int projectListLayout = 2131099657;
@@ -103,7 +112,10 @@ namespace TaskManagerAndroid
 			public const int ProjectList = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Register = 2130903044;
+			public const int ProjectOptions = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Register = 2130903045;
 			
 			static Layout()
 			{
