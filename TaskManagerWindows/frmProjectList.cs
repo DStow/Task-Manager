@@ -53,7 +53,7 @@ namespace TaskManagerWindows
             if(listProjects.SelectedItems.Count > 0)
             {
                 TaskManagerAPI.Project selectedProject = (TaskManagerAPI.Project)listProjects.SelectedItems[0];
-                frmTaskList taskList = new frmTaskList(selectedProject.ProjectId);
+                frmTaskList taskList = new frmTaskList(selectedProject);
                 taskList.ShowDialog();
             }
         }
