@@ -47,5 +47,14 @@ namespace TaskManagerWindows
             createForm.ShowDialog();
             PopulateProjectsList();
         }
+
+        private void btnViewTasks_Click(object sender, EventArgs e)
+        {
+            if(listProjects.SelectedItems.Count > 0)
+            {
+                TaskManagerAPI.Project selectedProject = (TaskManagerAPI.Project)listProjects.SelectedItems[0];
+                MessageBox.Show(selectedProject.ProjectId.ToString());
+            }
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.listProjects = new System.Windows.Forms.ListBox();
             this.btnAddProject = new System.Windows.Forms.Button();
+            this.btnViewTasks = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listProjects
@@ -51,11 +52,22 @@
             this.btnAddProject.UseVisualStyleBackColor = true;
             this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
             // 
+            // btnViewTasks
+            // 
+            this.btnViewTasks.Location = new System.Drawing.Point(12, 190);
+            this.btnViewTasks.Name = "btnViewTasks";
+            this.btnViewTasks.Size = new System.Drawing.Size(75, 23);
+            this.btnViewTasks.TabIndex = 2;
+            this.btnViewTasks.Text = "View Tasks";
+            this.btnViewTasks.UseVisualStyleBackColor = true;
+            this.btnViewTasks.Click += new System.EventHandler(this.btnViewTasks_Click);
+            // 
             // frmProjectList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 304);
+            this.Controls.Add(this.btnViewTasks);
             this.Controls.Add(this.btnAddProject);
             this.Controls.Add(this.listProjects);
             this.Font = new System.Drawing.Font("Calibri", 9F);
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.ListBox listProjects;
         private System.Windows.Forms.Button btnAddProject;
+        private System.Windows.Forms.Button btnViewTasks;
     }
 }
