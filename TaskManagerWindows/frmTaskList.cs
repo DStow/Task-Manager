@@ -24,9 +24,23 @@ namespace TaskManagerWindows
 
         private void frmTaskList_Load(object sender, EventArgs e)
         {
+            PopulateTaskList();
+        }
+
+        private void PopulateTaskList()
+        {
             TaskManagerAPI.ProjectTask[] tasks = TaskManagerAPI.ProjectTask.GetTasks(Token.AuthToken, _project.ProjectId);
             listTasks.DataSource = tasks;
             listTasks.DisplayMember = "Description";
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            frmTaskCreate createForm = new frmTaskCreate(_project);
+            if(createForm.ShowDialog() == DialogResult.OK)
+            {
+                PopulateTaskList();
+            }
         }
     }
 }

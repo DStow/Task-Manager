@@ -72,6 +72,12 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaskCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaskCreate.Designer.cs">
+      <DependentUpon>frmTaskCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTaskList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaskCreate.resx">
+      <DependentUpon>frmTaskCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaskList.resx">
       <DependentUpon>frmTaskList.cs</DependentUpon>
