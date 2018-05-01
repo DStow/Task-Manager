@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace TaskManagerWeb.Controllers
+namespace TaskManagerWeb.Controllers.Api
 {
     public class TaskController : ApiController
     {

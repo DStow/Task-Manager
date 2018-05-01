@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TaskManagerWeb.Models;
 
-namespace TaskManagerWeb.Controllers
+namespace TaskManagerWeb.Controllers.Api
 {
     public class ProjectController : ApiController
     {
