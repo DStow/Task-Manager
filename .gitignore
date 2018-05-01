@@ -5,3 +5,8 @@
 bin
 obj
 TaskManagerWeb/ConnectionStrings.config
+TaskManagerWeb/Properties/PublishProfiles/
+
+
+
+
