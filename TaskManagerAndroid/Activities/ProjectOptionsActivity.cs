@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TaskManagerAndroid.Activities
 {
-    [Activity(Label = "ProjectOptionsActivity")]
+    [Activity(Label = "Project Options")]
     public class ProjectOptionsActivity : Activity
     {
         private int _projectId;
@@ -35,7 +35,9 @@ namespace TaskManagerAndroid.Activities
 
         private void btnProjectViewTasks_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var taskListActivity = new Intent(this, typeof(TaskListActivity));
+            taskListActivity.PutExtra("SelectedProjectId", _projectId);
+            StartActivity(taskListActivity);
         }
 
         private void btnProjectEdit_Click(object sender, EventArgs e)

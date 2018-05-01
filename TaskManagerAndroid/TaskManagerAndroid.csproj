@@ -66,6 +66,7 @@
     <Compile Include="Activities\ProjectListActivity.cs" />
     <Compile Include="Activities\ProjectOptionsActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Activities\TaskListActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token.cs" />
@@ -89,6 +90,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ProjectOptions.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TaskList.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
