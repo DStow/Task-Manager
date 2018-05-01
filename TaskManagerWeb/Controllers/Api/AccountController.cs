@@ -17,7 +17,7 @@ using TaskManagerWeb.Models;
 using TaskManagerWeb.Providers;
 using TaskManagerWeb.Results;
 
-namespace TaskManagerWeb.Controllers
+namespace TaskManagerWeb.Controllers.Api
 {
     [Authorize]
     [RoutePrefix("api/Account")]
