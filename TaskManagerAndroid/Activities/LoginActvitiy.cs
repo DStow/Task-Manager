@@ -43,7 +43,7 @@ namespace TaskManagerAndroid.Activities
 
                     GoToProjectListActivity();
                 }
-                catch(TaskManagerAPI.RequestException ex)
+                catch (TaskManagerAPI.RequestException)
                 {
                     // If this fails let the login screen continue as standard
                 }               
