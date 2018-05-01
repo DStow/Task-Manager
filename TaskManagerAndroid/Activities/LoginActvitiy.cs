@@ -33,9 +33,20 @@ namespace TaskManagerAndroid.Activities
             string prefToken = prefs.GetString("AuthToken", null);
             if(prefToken != null)
             {
-                Token.AuthToken = prefToken;
-                // ToDo: Test a connection to make sure the token is valid
-                GoToProjectListActivity();
+
+                // Use the Who Am I call to test if the token is still valid. If not ask user to login again
+                try
+                {
+                    string email = TaskManagerAPI.Account.WhoAmI(prefToken);
+
+                    Token.AuthToken = prefToken;
+
+                    GoToProjectListActivity();
+                }
+                catch(TaskManagerAPI.RequestException ex)
+                {
+                    // If this fails let the login screen continue as standard
+                }               
             }
         }
 
