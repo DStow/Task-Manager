@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Preferences;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -26,6 +27,16 @@ namespace TaskManagerAndroid.Activities
 
             // Setup events for the two buttons
             FindViewById<Button>(Resource.Id.btnLogin).Click += btnLogin_Click;
+
+            // Check if the user already has a token
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            string prefToken = prefs.GetString("AuthToken", null);
+            if(prefToken != null)
+            {
+                Token.AuthToken = prefToken;
+                // ToDo: Test a connection to make sure the token is valid
+                GoToProjectListActivity();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -49,13 +60,24 @@ namespace TaskManagerAndroid.Activities
 
                 Token.AuthToken = token;
 
-                var projectListActivity = new Intent(this, typeof(ProjectListActivity));
-                StartActivity(projectListActivity);
+                // Store the token in the shared preferences...
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                ISharedPreferencesEditor editor = prefs.Edit();
+                editor.PutString("AuthToken", token);
+                editor.Apply();
+
+                GoToProjectListActivity();
             }
             else
             {
                 // Show credentials error
             }
+        }
+
+        private void GoToProjectListActivity()
+        {
+            var projectListActivity = new Intent(this, typeof(ProjectListActivity));
+            StartActivity(projectListActivity);
         }
     }
 }
