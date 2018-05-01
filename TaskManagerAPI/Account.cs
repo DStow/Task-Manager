@@ -55,5 +55,14 @@ namespace TaskManagerAPI
                 return false;
             }
         }
+
+        /// <summary>
+        /// Calls the API and returns the email of the currently authenticated user
+        /// </summary>
+        public static string WhoAmI(string authToken)
+        {
+            object result = TaskManagerAPI.SendRequest(Enumeration.RequestType.GET, "/API/Account/WhoAmI", null, authToken);
+            return result.ToString();
+        }
     }
 }

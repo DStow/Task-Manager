@@ -373,6 +373,13 @@ namespace TaskManagerWeb.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        public string WhoAmI()
+        {
+            // Cheap way of working out the users email if needed
+            return User.Identity.Name;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)
