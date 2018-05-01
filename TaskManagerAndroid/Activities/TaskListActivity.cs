@@ -38,6 +38,14 @@ namespace TaskManagerAndroid.Activities
                 text.Text = task.Description;
                 layout.AddView(text);
             }
+
+            if(tasks.Count() == 0)
+            {
+                TextView noTasksText = new TextView(this);
+                noTasksText.Text = "There are currently no tasks for this project!";
+                noTasksText.SetTextColor(Android.Graphics.Color.Red);
+                layout.AddView(noTasksText);
+            }
         }
     }
 }
