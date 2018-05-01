@@ -23,7 +23,8 @@ namespace TaskManagerWindows
             if(login.ShowDialog() == DialogResult.OK)
             {
                 // We have logged in!
-                this.Text = "Welcome " + Token.Email;
+                string email = TaskManagerAPI.Account.WhoAmI(Token.AuthToken);
+                this.Text = "Welcome " + email;
 
                 // Go get the projects
                 PopulateProjectsList();
