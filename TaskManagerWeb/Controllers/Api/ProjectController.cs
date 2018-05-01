@@ -24,6 +24,13 @@ namespace TaskManagerWeb.Controllers.Api
             return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name).ToArray();
         }
 
+        [HttpGet]
+        [Authorize]
+        public Project GetProject(int ProjectId)
+        {
+            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name && x.ProjectId == ProjectId).FirstOrDefault();
+        }
+
         [HttpPost]
         [Authorize]
         public int CreateProject(CreateProjectBindingClass newProject)
@@ -55,6 +62,11 @@ namespace TaskManagerWeb.Controllers.Api
         public class CreateProjectBindingClass
         {
             public string Name { get; set; }
+        }
+
+        public class GetProjectBindingClass
+        {
+            public string ProjectId { get; set; }
         }
         #endregion
     }

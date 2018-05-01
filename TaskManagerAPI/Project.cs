@@ -35,6 +35,23 @@ namespace TaskManagerAPI
             return results.ToArray();
         }
 
+        public static Project GetProject(string authToken, int projectId)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("ProjectId", projectId.ToString());
+
+            dynamic requestResult = TaskManagerAPI.SendRequest(Enumeration.RequestType.GET, "/api/project/getproject", parameters, authToken);
+            Project project = new Project()
+            {
+                CreatedBy = requestResult.CreatedBy,
+                CreatedWhen = requestResult.CreatedWhen,
+                Name = requestResult.Name,
+                ProjectId = requestResult.ProjectId
+            };
+
+            return project;
+        }
+
         public static int CreateProject(string authToken, string projectName)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
