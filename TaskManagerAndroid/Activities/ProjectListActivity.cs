@@ -12,7 +12,7 @@ using Android.Widget;
 
 using API = TaskManagerAPI;
 
-namespace TaskManagerAndroid
+namespace TaskManagerAndroid.Activities
 {
     [Activity(Label = "Your Projects")]
     public class ProjectListActivity : Activity

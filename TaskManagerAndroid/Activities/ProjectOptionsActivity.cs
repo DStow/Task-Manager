@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace TaskManagerAndroid
+namespace TaskManagerAndroid.Activities
 {
     [Activity(Label = "ProjectOptionsActivity")]
     public class ProjectOptionsActivity : Activity

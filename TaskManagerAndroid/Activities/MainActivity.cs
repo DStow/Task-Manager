@@ -2,7 +2,7 @@
 using Android.Widget;
 using Android.OS;
 
-namespace TaskManagerAndroid
+namespace TaskManagerAndroid.Activities
 {
     [Activity(Label = "TaskManagerAndroid")]
     public class MainActivity : Activity
