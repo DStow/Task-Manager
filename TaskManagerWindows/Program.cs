@@ -14,6 +14,8 @@ namespace TaskManagerWindows
         [STAThread]
         static void Main()
         {
+            TaskManagerAPI.TaskManagerAPI.TaskManagerURL = "http://www.taskmanager.dan-stow.co.uk";
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmProjectList());

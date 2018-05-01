@@ -25,6 +25,9 @@ namespace TaskManagerAndroid.Activities
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Login);
 
+            // ToDo: Change this to a config file or something...
+            TaskManagerAPI.TaskManagerAPI.TaskManagerURL = "http://www.taskmanager.dan-stow.co.uk";
+
             // Setup events for the two buttons
             FindViewById<Button>(Resource.Id.btnLogin).Click += btnLogin_Click;
 
