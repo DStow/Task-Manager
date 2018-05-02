@@ -50,6 +50,10 @@ namespace TaskManagerAndroid.Activities
                 noTasksText.SetTextColor(Android.Graphics.Color.Red);
                 layout.AddView(noTasksText);
             }
+
+            // Get the project 
+            TaskManagerAPI.Project proj = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
+            this.Title = proj.Name + " Tasks";
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

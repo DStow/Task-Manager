@@ -31,6 +31,9 @@ namespace TaskManagerAndroid.Activities
             FindViewById<Button>(Resource.Id.btnProjectViewTasks).Click += btnProjectViewTasks_Click;
             FindViewById<Button>(Resource.Id.btnProjectEdit).Click += btnProjectEdit_Click;
             FindViewById<Button>(Resource.Id.btnProjectDelete).Click += btnProjectDelete_Click;
+
+            TaskManagerAPI.Project project = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
+            this.Title = project.Name + " Options";
         }
 
         private void btnProjectViewTasks_Click(object sender, EventArgs e)

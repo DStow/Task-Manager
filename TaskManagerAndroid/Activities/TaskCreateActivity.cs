@@ -28,6 +28,10 @@ namespace TaskManagerAndroid.Activities
 
             // Add event handlers
             FindViewById<Button>(Resource.Id.btnCreateTask).Click += btnCreateTask_Click;
+
+            // Get project and set title
+            TaskManagerAPI.Project proj = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
+            this.Title = "Create Task for " + proj.Name;
         }
 
         private void btnCreateTask_Click(object sender, EventArgs e)
