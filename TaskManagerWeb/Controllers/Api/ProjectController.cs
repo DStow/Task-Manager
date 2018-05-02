@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TaskManagerWeb.Models;
+using System.Data.Entity;
 
 namespace TaskManagerWeb.Controllers.Api
 {
@@ -28,7 +29,7 @@ namespace TaskManagerWeb.Controllers.Api
         [Authorize]
         public Project GetProject(int ProjectId)
         {
-            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name && x.ProjectId == ProjectId).FirstOrDefault();
+            return _context.Projects.Include(x => x.Tasks).Where(x => x.CreatedBy == User.Identity.Name && x.ProjectId == ProjectId).FirstOrDefault();
         }
 
         [HttpPost]
