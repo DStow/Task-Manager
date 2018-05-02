@@ -44,14 +44,17 @@ namespace TaskManagerAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000d
-			public const int TaskListLayout = 2131099661;
+			// aapt resource value: 0x7f06000f
+			public const int TaskListLayout = 2131099663;
 			
 			// aapt resource value: 0x7f060006
 			public const int btnCreateNewAccount = 2131099654;
 			
 			// aapt resource value: 0x7f060008
 			public const int btnCreateProject = 2131099656;
+			
+			// aapt resource value: 0x7f06000e
+			public const int btnCreateTask = 2131099662;
 			
 			// aapt resource value: 0x7f060005
 			public const int btnLogin = 2131099653;
@@ -65,8 +68,8 @@ namespace TaskManagerAndroid
 			// aapt resource value: 0x7f06000a
 			public const int btnProjectViewTasks = 2131099658;
 			
-			// aapt resource value: 0x7f06000e
-			public const int menu_edit = 2131099662;
+			// aapt resource value: 0x7f060010
+			public const int menu_edit = 2131099664;
 			
 			// aapt resource value: 0x7f060009
 			public const int projectListLayout = 2131099657;
@@ -88,6 +91,9 @@ namespace TaskManagerAndroid
 			
 			// aapt resource value: 0x7f060007
 			public const int txtProjectName = 2131099655;
+			
+			// aapt resource value: 0x7f06000d
+			public const int txtTaskDescription = 2131099661;
 			
 			static Id()
 			{
@@ -121,7 +127,10 @@ namespace TaskManagerAndroid
 			public const int Register = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int TaskList = 2130903046;
+			public const int TaskCreate = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int TaskList = 2130903047;
 			
 			static Layout()
 			{
