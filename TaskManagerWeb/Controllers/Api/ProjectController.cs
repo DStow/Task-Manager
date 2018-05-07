@@ -58,6 +58,30 @@ namespace TaskManagerWeb.Controllers.Api
             }
         }
 
+        [HttpPost]
+        [Authorize]
+        public HttpResponseMessage UpdateProject(EditProjectBindingClass editProject)
+        {
+            var existingproject = _context.Projects.Where(x => x.ProjectId == editProject.ProjectId && x.CreatedBy == User.Identity.Name).FirstOrDefault();
+
+            if(existingproject == null)
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+            else if (String.IsNullOrWhiteSpace(editProject.Name))
+            {
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            }
+            else
+            {
+
+                existingproject.Name = editProject.Name;
+                _context.SaveChanges();
+
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+        }
+
         #region Binding Classes
         public class CreateProjectBindingClass
         {
@@ -67,6 +91,12 @@ namespace TaskManagerWeb.Controllers.Api
         public class GetProjectBindingClass
         {
             public string ProjectId { get; set; }
+        }
+
+        public class EditProjectBindingClass
+        {
+            public int ProjectId { get; set; }
+            public string Name { get; set; }
         }
         #endregion
     }
