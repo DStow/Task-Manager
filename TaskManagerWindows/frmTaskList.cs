@@ -37,9 +37,22 @@ namespace TaskManagerWindows
         private void btnCreate_Click(object sender, EventArgs e)
         {
             frmTaskCreate createForm = new frmTaskCreate(_project);
-            if(createForm.ShowDialog() == DialogResult.OK)
+            if (createForm.ShowDialog() == DialogResult.OK)
             {
                 PopulateTaskList();
+            }
+        }
+
+        private void listTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listTasks.SelectedIndex >= 0)
+            {
+                TaskManagerAPI.ProjectTask selectedTask = (TaskManagerAPI.ProjectTask)listTasks.SelectedItem;
+                lblCompleteStatus.Text = "Completed: " + selectedTask.Completed.ToString();
+            }
+            else
+            {
+                lblCompleteStatus.Text = "Completed: ";
             }
         }
     }
