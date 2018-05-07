@@ -61,5 +61,14 @@ namespace TaskManagerAPI
 
             return 0;
         }
+
+        public static void UpdateProject(string authToken, int projectId, string projectName)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("ProjectId", projectId.ToString());
+            parameters.Add("Name", projectName);
+
+            TaskManagerAPI.SendRequest(Enumeration.RequestType.POST, "/api/project/updateproject", parameters, authToken);
+        }
     }
 }
