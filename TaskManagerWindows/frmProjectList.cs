@@ -20,7 +20,7 @@ namespace TaskManagerWindows
         private void frmProjectList_Load(object sender, EventArgs e)
         {
             frmLogin login = new frmLogin();
-            if(login.ShowDialog() == DialogResult.OK)
+            if (login.ShowDialog() == DialogResult.OK)
             {
                 // We have logged in!
                 string email = TaskManagerAPI.Account.WhoAmI(Token.AuthToken);
@@ -51,12 +51,23 @@ namespace TaskManagerWindows
 
         private void btnViewTasks_Click(object sender, EventArgs e)
         {
-            if(listProjects.SelectedItems.Count > 0)
+            if (listProjects.SelectedItems.Count > 0)
             {
                 TaskManagerAPI.Project selectedProject = (TaskManagerAPI.Project)listProjects.SelectedItems[0];
                 frmTaskList taskList = new frmTaskList(selectedProject);
                 taskList.ShowDialog();
             }
+        }
+
+        private void btnEditProject_Click(object sender, EventArgs e)
+        {
+            if (listProjects.SelectedItems.Count > 0)
+            {
+                TaskManagerAPI.Project selectedProject = (TaskManagerAPI.Project)listProjects.SelectedItems[0];
+                frmProjectEdit editProject = new frmProjectEdit(selectedProject);
+                editProject.ShowDialog();
+                PopulateProjectsList();
+        }
         }
     }
 }

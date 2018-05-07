@@ -31,15 +31,16 @@
             this.listProjects = new System.Windows.Forms.ListBox();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.btnViewTasks = new System.Windows.Forms.Button();
+            this.btnEditProject = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listProjects
             // 
             this.listProjects.FormattingEnabled = true;
-            this.listProjects.ItemHeight = 14;
+            this.listProjects.ItemHeight = 22;
             this.listProjects.Location = new System.Drawing.Point(12, 12);
             this.listProjects.Name = "listProjects";
-            this.listProjects.Size = new System.Drawing.Size(564, 172);
+            this.listProjects.Size = new System.Drawing.Size(564, 158);
             this.listProjects.TabIndex = 0;
             // 
             // btnAddProject
@@ -62,11 +63,22 @@
             this.btnViewTasks.UseVisualStyleBackColor = true;
             this.btnViewTasks.Click += new System.EventHandler(this.btnViewTasks_Click);
             // 
+            // btnEditProject
+            // 
+            this.btnEditProject.Location = new System.Drawing.Point(93, 190);
+            this.btnEditProject.Name = "btnEditProject";
+            this.btnEditProject.Size = new System.Drawing.Size(75, 23);
+            this.btnEditProject.TabIndex = 3;
+            this.btnEditProject.Text = "Edit";
+            this.btnEditProject.UseVisualStyleBackColor = true;
+            this.btnEditProject.Click += new System.EventHandler(this.btnEditProject_Click);
+            // 
             // frmProjectList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 304);
+            this.Controls.Add(this.btnEditProject);
             this.Controls.Add(this.btnViewTasks);
             this.Controls.Add(this.btnAddProject);
             this.Controls.Add(this.listProjects);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.ListBox listProjects;
         private System.Windows.Forms.Button btnAddProject;
         private System.Windows.Forms.Button btnViewTasks;
+        private System.Windows.Forms.Button btnEditProject;
     }
 }
