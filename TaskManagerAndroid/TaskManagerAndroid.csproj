@@ -63,6 +63,7 @@
     <Compile Include="Activities\LoginActvitiy.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\ProjectCreateActivity.cs" />
+    <Compile Include="Activities\ProjectEditActivity.cs" />
     <Compile Include="Activities\ProjectListActivity.cs" />
     <Compile Include="Activities\ProjectOptionsActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
