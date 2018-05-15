@@ -45,7 +45,9 @@ namespace TaskManagerAndroid.Activities
 
         private void btnProjectEdit_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var projectEditActivity = new Intent(this, typeof(ProjectEditActivity));
+            projectEditActivity.PutExtra("SelectedProjectId", _projectId);
+            StartActivity(projectEditActivity);
         }
 
         private void btnProjectDelete_Click(object sender, EventArgs e)
