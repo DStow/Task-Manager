@@ -33,6 +33,7 @@ namespace TaskManagerAndroid.Activities
             // Get project details
             int projectId = Intent.GetIntExtra("SelectedProjectId", -1);
 
+            // If the project cannot be found for some reason throw an exception and get us out of here
             if(projectId == 0)
             {
                 throw new Exception("Project not found?!");
