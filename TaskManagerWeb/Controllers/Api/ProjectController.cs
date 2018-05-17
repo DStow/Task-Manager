@@ -21,14 +21,14 @@ namespace TaskManagerWeb.Controllers.Api
         [Authorize]
         public Project[] GetProjects()
         {
-            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name).ToArray();
+            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name && x.Deleted == false).ToArray();
         }
 
         [HttpGet]
         [Authorize]
         public Project GetProject(int ProjectId)
         {
-            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name && x.ProjectId == ProjectId).FirstOrDefault();
+            return _context.Projects.Where(x => x.CreatedBy == User.Identity.Name && x.ProjectId == ProjectId && x.Deleted == false).FirstOrDefault();
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace TaskManagerWeb.Controllers.Api
         public int CreateProject(CreateProjectBindingClass newProject)
         {
             // Check if they have already created
-            var existingProject = _context.Projects.Where(x => x.Name.ToLower() == newProject.Name.ToString() && x.CreatedBy == User.Identity.Name);
+            var existingProject = _context.Projects.Where(x => x.Name.ToLower() == newProject.Name.ToString() && x.CreatedBy == User.Identity.Name && x.Deleted == false);
 
             if (existingProject.Count() > 0)
             {
@@ -62,9 +62,9 @@ namespace TaskManagerWeb.Controllers.Api
         [Authorize]
         public HttpResponseMessage UpdateProject(EditProjectBindingClass editProject)
         {
-            var existingproject = _context.Projects.Where(x => x.ProjectId == editProject.ProjectId && x.CreatedBy == User.Identity.Name).FirstOrDefault();
+            var existingproject = _context.Projects.Where(x => x.ProjectId == editProject.ProjectId && x.CreatedBy == User.Identity.Name && x.Deleted == false).FirstOrDefault();
 
-            if(existingproject == null)
+            if (existingproject == null)
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }

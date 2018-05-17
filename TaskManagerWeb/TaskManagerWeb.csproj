@@ -246,6 +246,10 @@
     <Compile Include="Migrations\201804300020213_AddTasks.Designer.cs">
       <DependentUpon>201804300020213_AddTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805171725052_AddDeletedFieldsToProject.cs" />
+    <Compile Include="Migrations\201805171725052_AddDeletedFieldsToProject.Designer.cs">
+      <DependentUpon>201805171725052_AddDeletedFieldsToProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AccountBindingModels.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804300020213_AddTasks.resx">
       <DependentUpon>201804300020213_AddTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805171725052_AddDeletedFieldsToProject.resx">
+      <DependentUpon>201805171725052_AddDeletedFieldsToProject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
