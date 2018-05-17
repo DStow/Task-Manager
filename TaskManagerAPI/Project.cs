@@ -70,5 +70,13 @@ namespace TaskManagerAPI
 
             TaskManagerAPI.SendRequest(Enumeration.RequestType.POST, "/api/project/updateproject", parameters, authToken);
         }
+
+        public static void DeleteProject(string authToken, int projectId)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("ProjectId", projectId.ToString());
+
+            TaskManagerAPI.SendRequest(Enumeration.RequestType.POST, "/api/project/deleteproject", parameters, authToken);
+        }
     }
 }

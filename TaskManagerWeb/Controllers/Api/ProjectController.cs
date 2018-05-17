@@ -82,6 +82,28 @@ namespace TaskManagerWeb.Controllers.Api
             }
         }
 
+        [HttpPost]
+        [Authorize]
+        public HttpResponseMessage DeleteProject(DeleteProjectBindingClass deleteProjcet)
+        {
+            var existingproject = _context.Projects.Where(x => x.ProjectId == deleteProjcet.ProjectId && x.CreatedBy == User.Identity.Name && x.Deleted == false).FirstOrDefault();
+
+            if(existingproject != null)
+            {
+                existingproject.Deleted = true;
+                existingproject.DeletedWhen = DateTime.Now;
+
+                _context.SaveChanges();
+
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+
+        }
+
         #region Binding Classes
         public class CreateProjectBindingClass
         {
@@ -97,6 +119,11 @@ namespace TaskManagerWeb.Controllers.Api
         {
             public int ProjectId { get; set; }
             public string Name { get; set; }
+        }
+
+        public class DeleteProjectBindingClass
+        {
+            public int ProjectId { get; set; }
         }
         #endregion
     }

@@ -16,6 +16,7 @@ namespace TaskManagerAndroid.Activities
     public class ProjectOptionsActivity : Activity
     {
         private int _projectId;
+        private TaskManagerAPI.Project _project;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,8 +33,8 @@ namespace TaskManagerAndroid.Activities
             FindViewById<Button>(Resource.Id.btnProjectEdit).Click += btnProjectEdit_Click;
             FindViewById<Button>(Resource.Id.btnProjectDelete).Click += btnProjectDelete_Click;
 
-            TaskManagerAPI.Project project = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
-            this.Title = project.Name + " Options";
+            _project = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
+            this.Title = _project.Name + " Options";
         }
 
         private void btnProjectViewTasks_Click(object sender, EventArgs e)
@@ -52,7 +53,26 @@ namespace TaskManagerAndroid.Activities
 
         private void btnProjectDelete_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // Confirm with user
+            var dialogBuilder = new AlertDialog.Builder(this);
+            dialogBuilder.SetTitle("Delete Project?!");
+            dialogBuilder.SetMessage("Are you sure you want to delete the '" + _project.Name + "' project? (Can't be undone...)");
+            dialogBuilder.SetNeutralButton("Cancel", (x, y) =>
+            {
+                // Do nothing as cancelled
+            });
+
+            dialogBuilder.SetNegativeButton("DELETE", (x, y) =>
+            {
+                // Send delete request
+                TaskManagerAPI.Project.DeleteProject(Token.AuthToken, _projectId);
+                // If this successds return to project list
+                var projectListIntent = new Intent(this, typeof(ProjectListActivity));
+                 StartActivity(projectListIntent);
+                return;
+            });
+            dialogBuilder.Show();
+
         }
     }
 }
