@@ -84,7 +84,17 @@ namespace TaskManagerAndroid.Activities
             }
             else
             {
-                // Show credentials error
+                // Reset the auth token if the sign in failed...
+                Token.AuthToken = "";
+
+                // Show a dialog box to tell the user of incorrect credentials..
+                var dialogEditor = new Android.App.AlertDialog.Builder(this);
+                dialogEditor.SetTitle("Invalid Credentials");
+                dialogEditor.SetPositiveButton("OK", (x, y) =>
+                {
+                    // we do nothing as we don't care?
+                });
+                dialogEditor.Show();
             }
         }
 
