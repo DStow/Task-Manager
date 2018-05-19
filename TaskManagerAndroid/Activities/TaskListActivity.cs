@@ -32,12 +32,12 @@ namespace TaskManagerAndroid.Activities
             TaskManagerAPI.ProjectTask[] tasks = TaskManagerAPI.ProjectTask.GetTasks(Token.AuthToken, projectId);
 
             // Get layout
-            LinearLayout layout = FindViewById<LinearLayout>(Resource.Id.TaskListLayout);
+            ScrollView layout = FindViewById<ScrollView>(Resource.Id.scrollTaskList);
 
             // Put tasks onto screen
             foreach(var task in tasks)
             {
-                TextView text = new TextView(this);
+                CheckBox text = new CheckBox(this);
                 text.Text = task.Description;
                 layout.AddView(text);
             }

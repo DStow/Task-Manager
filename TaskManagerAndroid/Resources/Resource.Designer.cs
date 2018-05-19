@@ -68,11 +68,14 @@ namespace TaskManagerAndroid
 			// aapt resource value: 0x7f06000a
 			public const int btnProjectViewTasks = 2131099658;
 			
-			// aapt resource value: 0x7f060010
-			public const int menu_edit = 2131099664;
+			// aapt resource value: 0x7f060011
+			public const int menu_edit = 2131099665;
 			
 			// aapt resource value: 0x7f060009
 			public const int projectListLayout = 2131099657;
+			
+			// aapt resource value: 0x7f060010
+			public const int scrollTaskList = 2131099664;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
