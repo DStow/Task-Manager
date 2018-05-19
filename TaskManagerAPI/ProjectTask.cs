@@ -57,5 +57,14 @@ namespace TaskManagerAPI
 
             return 0;
         }
+
+        public static void UpdateTaskCompletedStatus(string authToken, int taskId, bool completed)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("TaskId", taskId.ToString());
+            parameters.Add("Completed", completed.ToString());
+
+            TaskManagerAPI.SendRequest(Enumeration.RequestType.POST, "/api/task/UpdateTaskCompletedStatus", parameters, authToken);
+        }
     }
 }

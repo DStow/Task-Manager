@@ -32,14 +32,22 @@ namespace TaskManagerAndroid.Activities
             TaskManagerAPI.ProjectTask[] tasks = TaskManagerAPI.ProjectTask.GetTasks(Token.AuthToken, projectId);
 
             // Get layout
-            ScrollView layout = FindViewById<ScrollView>(Resource.Id.scrollTaskList);
+            LinearLayout layout = FindViewById<LinearLayout>(Resource.Id.linearTaskList);
 
             // Put tasks onto screen
             foreach(var task in tasks)
             {
-                CheckBox text = new CheckBox(this);
-                text.Text = task.Description;
-                layout.AddView(text);
+                ValuedCheckItem taskCheck = new ValuedCheckItem(this, task.ProjectTaskId.ToString());
+                taskCheck.Text = task.Description;
+
+                if (task.Completed)
+                {
+                    taskCheck.Checked = true;
+                }
+
+                taskCheck.CheckedChange += TaskCheck_CheckedChange;
+
+                layout.AddView(taskCheck);
             }
 
             // Display a message if there are not tasks assigned to this project
@@ -54,6 +62,19 @@ namespace TaskManagerAndroid.Activities
             // Get the project 
             TaskManagerAPI.Project proj = TaskManagerAPI.Project.GetProject(Token.AuthToken, _projectId);
             this.Title = proj.Name + " Tasks";
+        }
+
+        private void TaskCheck_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            // Update task checked state
+            ValuedCheckItem checkedItem = sender as ValuedCheckItem;
+            if(checkedItem== null)
+            {
+                return;
+            }
+
+            int taskId = Convert.ToInt32(checkedItem.AttachedValue);
+            TaskManagerAPI.ProjectTask.UpdateTaskCompletedStatus(Token.AuthToken, taskId, e.IsChecked);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -74,6 +95,17 @@ namespace TaskManagerAndroid.Activities
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+    }
+
+    public class ValuedCheckItem : CheckBox
+    {
+        public string AttachedValue { get; set; }
+
+        public ValuedCheckItem(Context context, string value)
+            : base(context)
+        {
+            this.AttachedValue = value;
         }
     }
 }

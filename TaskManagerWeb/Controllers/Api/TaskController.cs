@@ -62,10 +62,45 @@ namespace TaskManagerWeb.Controllers.Api
             }
         }
 
+        [Authorize]
+        [HttpPost]
+        public HttpResponseMessage UpdateTaskCompletedStatus(UpdateTaskCompletedStatusBindingClass updateTask)
+        {
+            // Check the task belongs to this user
+            var dbTask = _context.Tasks.Where(x => x.ProjectTaskId == updateTask.TaskId && x.CreatedBy == User.Identity.Name).FirstOrDefault();
+
+            if (dbTask != null)
+            {
+                if (updateTask.Completed)
+                {
+                    dbTask.Completed = true;
+                    dbTask.CompletedWhen = DateTime.Now;
+                }
+                else
+                {
+                    dbTask.Completed = false;
+                    dbTask.CompletedWhen = null;
+                }
+
+                _context.SaveChanges();
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+        }
+
         public class CreateTaskBindingClass
         {
             public int ProjectId { get; set; }
             public string Description { get; set; }
+        }
+
+        public class UpdateTaskCompletedStatusBindingClass
+        {
+            public int TaskId { get; set; }
+            public bool Completed { get; set; }
         }
     }
 
