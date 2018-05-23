@@ -47,7 +47,9 @@ namespace TaskManagerAndroid.Activities
                 // On success go back to project list
                 var projectListActivity = new Intent(this, typeof(ProjectListActivity));
                 StartActivity(projectListActivity);
+                Finish();
             }
         }
+
     }
 }

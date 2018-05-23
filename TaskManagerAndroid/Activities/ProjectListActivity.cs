@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Preferences;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -17,18 +18,17 @@ namespace TaskManagerAndroid.Activities
     [Activity(Label = "Your Projects")]
     public class ProjectListActivity : Activity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+
+        private void PopulateProjectListView()
         {
-            base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.ProjectList);
-
             // Get the projects
             API.Project[] projects = API.Project.GetProjects(Token.AuthToken);
 
             // Get layout container
             LinearLayout layout = FindViewById<LinearLayout>(Resource.Id.projectListLayout);
+
+            // Clear out any existing stuff
+            layout.RemoveAllViews();
 
             // Add of the projects as a button to the layout
             foreach (var project in projects)
@@ -48,6 +48,17 @@ namespace TaskManagerAndroid.Activities
             }
         }
 
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.ProjectList);
+
+            PopulateProjectListView();
+
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.AddItemMenu, menu);
@@ -65,6 +76,33 @@ namespace TaskManagerAndroid.Activities
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        public override void OnBackPressed()
+        {
+            // Confirm if the user wants to logout
+            var dialogEditor = new Android.App.AlertDialog.Builder(this);
+            dialogEditor.SetTitle("Logout");
+            dialogEditor.SetNegativeButton("Yes", (x, y) =>
+            {
+                // we do nothing as we don't care?
+                Token.AuthToken = "";
+
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+                ISharedPreferencesEditor editor = prefs.Edit();
+                editor.PutString("AuthToken", null);
+                editor.Apply();
+
+                var loginIntent = new Intent(this, typeof(LoginActvitiy));
+                StartActivity(loginIntent);
+                Finish();
+            });
+
+            dialogEditor.SetPositiveButton("No", (x, y) =>
+            {
+                // Cancel
+            });
+            dialogEditor.Show();
         }
     }
 }
