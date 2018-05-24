@@ -14,7 +14,7 @@ using API = TaskManagerAPI;
 
 namespace TaskManagerAndroid.Activities
 {
-    [Activity(Label = "ProjectCreateActivity")]
+    [Activity(Label = "Create New Project")]
     public class ProjectCreateActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
