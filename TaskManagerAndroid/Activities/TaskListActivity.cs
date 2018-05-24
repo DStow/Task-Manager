@@ -96,6 +96,13 @@ namespace TaskManagerAndroid.Activities
 
             return base.OnOptionsItemSelected(item);
         }
+
+        public override void OnBackPressed()
+        {
+            var projectOptionsActivity = new Intent(this, typeof(ProjectOptionsActivity));
+            projectOptionsActivity.PutExtra("SelectedProjectId", _projectId);
+            StartActivity(projectOptionsActivity);
+        }
     }
 
     public class ValuedCheckItem : CheckBox

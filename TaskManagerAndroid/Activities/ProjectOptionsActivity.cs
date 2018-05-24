@@ -74,5 +74,11 @@ namespace TaskManagerAndroid.Activities
             dialogBuilder.Show();
 
         }
+
+        public override void OnBackPressed()
+        {
+            var projectListActivity = new Intent(this, typeof(ProjectListActivity));
+            StartActivity(projectListActivity);
+        }
     }
 }
