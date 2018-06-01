@@ -1,1 +1,16 @@
 # Task Manager Ignore File
+
+.vs
+/packages/
+bin
+obj
+
+# Config files
+TaskManagerWeb/ConnectionStrings.config
+TaskManagerWindows/App.config
+
+TaskManagerWeb/Properties/PublishProfiles/
+
+
+
+
